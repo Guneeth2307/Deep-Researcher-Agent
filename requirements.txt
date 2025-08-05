@@ -1,5 +1,0 @@
-streamlit
-python-dotenv
-pydantic
-# AgnoAI SDK and related tools
-agno
