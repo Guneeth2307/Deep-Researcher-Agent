@@ -5,7 +5,7 @@ from agno.agent import Agent
 from agno.models.nebius import Nebius
 from agno.tools.scrapegraph import ScrapeGraphTools
 from agno.workflow import Workflow
-from agno.workflow import RunResponse
+
 from dotenv import load_dotenv
 from typing import Iterator
 from agno.utils.log import logger
@@ -54,9 +54,10 @@ class DeepResearcherAgent(Workflow):
             ),
         )
 
-    def run(self, topic: str) -> Iterator[RunResponse]:
+    def run(self, topic: str):
         logger.info(f"Running deep researcher agent for topic: {topic}")
         research_content = self.searcher.run(topic)
         analysis = self.analyst.run(research_content.content)
         report = self.writer.run(analysis.content, stream=True)
         yield from report
+
