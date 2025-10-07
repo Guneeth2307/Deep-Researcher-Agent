@@ -4,4 +4,6 @@ pydantic
 # AgnoAI SDK and related tools
 agno
 openai
+fastapi
+starlette
 scrapegraph-py
